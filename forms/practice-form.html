@@ -4,17 +4,72 @@
 		<title>Registration Form</title>
 	</head>
 	<body>
-		<h2>Marathon Registration</h2>
+		<h3>Marathon Registration</h3>
 		<form name="" action="" method="post">
 			<fieldset>
+				<legend>Personal Info</legend>
 				<div>
-					First Name: <input type="text" name="firstname" placeholder="First Name">
-					Last Name: <input type="text" name="lastname" placeholder="Last Name">
+					<label>First Name: </label>
+					<input type="text" name="firstname" placeholder="First Name">
+					<label>Last Name: </label>
+					<input type="text" name="lastname" placeholder="Last Name">
 				</div>
 				<p></p>
 				<div>
-					Identity No.: <input type="text" name="idno">
-					Email: <input type="email" name="email">
+					<label>Identity No.: </label>
+					<input type="text" name="idno">
+					<label>Email: </label>
+					<input type="email" name="email">
+				</div>
+				<p></p>
+				<div>
+					<label>D.O.B: </label>
+					<input type="text" name="dob" placeholder="dd-mm-yyyy">
+					<label>Phone #: </label>
+					<input type="text" name="Phone">
+				</div>
+				<p></p>
+				<div>
+					<label>Gender: </label>
+					<input type="radio" name="gender">Male        
+					<input type="radio" name="gender">Female
+				</div>
+			</fieldset>
+			<fieldset>
+				<legend>Postal Info</legend>
+				<div>
+					<label>Address</label>
+					<br>
+					<textarea rows="12" cols="65" name="Address" placeholder="555 North ST Chandler, AZ 85225"></textarea>
+				</div>
+			</fieldset>
+			<fieldset>
+				<legend>Race Info</legend>
+				<div>
+					<label>Length: </label>
+					<select Name="length">
+						<option value="3k">3k</option>
+						<option value="5k">5k</option>
+						<option value="10k">10k</option>
+						<option value="21k">21k</option>
+						<option value="42k">42k</option>
+					</select>
+				</div>
+				<div>
+					<label>Shirt Size: </label>
+					<select Name="shirt size">
+						<option value="XS">XS</option>
+						<option value="S">S</option>
+						<option value="M">M</option>
+						<option value="L">L</option>
+						<option value="XL">XL</option>
+					</select>
+				</div>
+				<div>
+					<label>Running Level: </label> <br>
+					<input type="checkbox" name="Elite"> Elite <br>
+					<input type="checkbox" name="Intermediate"> Intermediate <br>
+					<input type="checkbox" name="Beginner"> Beginner
 				</div>
 			</fieldset>
 		</form>
