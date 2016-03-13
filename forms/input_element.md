@@ -6,6 +6,7 @@
 	* Specifies the name of the input element.
 * Placeholder
 	* Tells the user what the expected value should be.
+
 ### Form Tags:
 * Fieldset
 	* The fieldset tag is used to group related elements in a form.
