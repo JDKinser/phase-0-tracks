@@ -1,18 +1,23 @@
 .octopus {
-	border: 1px solid;
-	position: relative;
-	left: 50%;
-	margin-top: 10%;
+	display: block;
+	margin: auto;
+	margin-top: 85px;
 }
 
 .hat {
 	position: absolute;
-	top: 2%;
-	right: 13%;
+	top: 35px;
+	left: 15px;
+	right: 0;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .glasses {
 	position: absolute;
-	top: 21.5%;
-	right: 24%;
+	top: 185px;
+	left: 2px;
+	right: 0;
+	margin-left: auto;
+	margin-right: auto;
 }
