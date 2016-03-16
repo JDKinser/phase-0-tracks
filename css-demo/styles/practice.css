@@ -9,6 +9,10 @@
 	margin: 10px 0px;
 }
 
+.job:hover {
+	background-color: #c3bdad;
+}
+
 .list {
 	font-size: .8em
 }
