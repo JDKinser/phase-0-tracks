@@ -16,3 +16,7 @@
 .list {
 	font-size: .8em
 }
+
+#personal-objective p:hover {
+	color: #616187;
+}
