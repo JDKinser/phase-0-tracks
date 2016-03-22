@@ -1,0 +1,71 @@
+- When told command "elevator" by owner:
+	- Follow set path to elevator.
+- Ask owner if he will be going "up" or "down":
+- If owner replies with "down":
+	- Push elevator button predetermined as down (wait for elevator to arrive)
+	- Enter elevator and ask owner which floor they would like.
+	- Turn to elevator buttons and turn on button recognition.
+	- When owner replied press button of desired floor. 
+	- When floor is reached tell owner "Have a great day."
+	_ When doors close return to "home" (press button of home floor)
+-Otherwise:
+	- If owner replies with "up":
+		- Push elevator button predetermined as up (wait for elevator to arrive)
+		- Enter elevator and ask owner which floor they would like.
+		- Turn to elevator buttons and turn on button recognition.
+		- When owner replied press button of desired floor. 
+		- When floor is reached tell owner "Have a great day."
+		_ When doors close return to "home" (press button of home floor)
+		
+		
+*** Making a smoothie ***
+-Enter kitchen
+-Move to counter with blender
+-Grab blender
+	-Plug in blender 
+	-Take off lid
+-Move to draw with knives
+	-Open drawer
+	-Grab knife used for chopping fruits and veg
+	-Place knife on counter
+	-Close drawer
+-Grab cutting board and place on counter near knife.
+-Walk to fridge 
+	-Open fridge and freezer
+	-Grab desired fruits and veg
+	-Place fruits and veg on cutting board
+	-Return to fridge and shut doors
+-Walk to counter and grab fruits and veg
+-Walk to sink
+	-Turn on water
+	-Wash fruits and veg
+	-Place items back on cutting board
+	-Turn off water
+-Walk to cutting board
+	-Take knife in hand
+	-Cut fruits and veg to desired sizes
+	-Put knife in sink
+-Grab chopped items and place in blender
+-Walk to fridge
+	-Open fridge and freezer
+	-Grab desired liquid from fridge
+	-Grab ice from freezer
+	-close doors using leg
+-Walk to blender
+	-Add desired amount of liquid
+	-Add desired amount of ice
+	-Put top on blender
+	-Run blender until desired consistency is reached
+	-Turn off blender
+-Walk to cabinet
+	-Open cabinet
+	-Grab glass
+	-Close cabinet
+-Walk to blender
+	-Grab blender with free hand
+	-Poor contents of blender into glass
+	-Place glass on counter
+	-Place blender in sink
+-Return to glass and enjoy
+-Run "dishes" algorithm
+	
