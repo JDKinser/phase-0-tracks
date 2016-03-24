@@ -1,3 +1,25 @@
 body {
-	background-color: blue;
+  font-family: Arial;
+  background-color: green;
 }
+
+header {
+  background-color: blue;
+  padding: 10px;
+  color: white;
+}
+
+section {
+  float: left;
+  width: 45%;
+  padding: 10px;
+}
+
+footer {
+  clear: both;
+}
+
+h1 {
+  color: green;
+}
+
