@@ -2,7 +2,7 @@
 currentYear = Time.new.year
 
 puts "What is your name?"
-name = gets.chomp
+name = gets.chomp.capitalize
 
 puts "How old are you?"
 age = gets.chomp.to_i
@@ -16,12 +16,20 @@ bread = gets.chomp.downcase
 puts "Would you like to enroll in the company's health insurance? (y/n)"
 aflac = gets.chomp.downcase
 
-if age == (currentYear - dob) && (bread == "y" || aflec == "y")
+
+if age == currentYear - dob && (bread == "y" || aflac == "y")
 	puts "Probably not a vampire"
-elsif age != (currentYear - dob) && (bread == "n" || aflec == "n")
+
+elsif age != currentYear - dob && (bread == "n" || aflac == "n")
 	puts "Probably a vampire"
-elsif age != (currentYear - dob) && (bread == "n" && aflec == "n")
+
+elsif age != currentYear - dob && (bread == "n" && aflac == "n")
 	puts "Almost certainly a vampire"
+
 elsif name == "Drake Cula" || name == "Tu Fang"
 	puts "Definitely a vampire"
-else puts "Results inconclusive"
+
+else 
+	puts "Results inconclusive"
+
+end
