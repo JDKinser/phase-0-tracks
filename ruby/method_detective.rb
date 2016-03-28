@@ -4,8 +4,10 @@
 # When there's more than one suspect who could have
 # committed the crime, add additional calls to prove it.
 
-# “iNvEsTiGaTiOn”.<???>
-# => “InVeStIgAtIoN”
+# We could use .replace in most of these to just remove whats there and replace with what you need.
+
+"iNvEsTiGaTiOn".swapcase
+ => “InVeStIgAtIoN”
 
 # “zom”.<???>
 # => “zoom”
