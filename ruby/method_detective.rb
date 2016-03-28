@@ -16,8 +16,8 @@
 "enhance".center(15)
 => “    enhance    ”
 
-# “Stop! You’re under arrest!”.<???>
-# => “STOP! YOU’RE UNDER ARREST!”
+ "Stop! You’re under arrest!".upcase
+ => “STOP! YOU’RE UNDER ARREST!”
 
 # “the usual”.<???>
 #=> “the usual suspects”
