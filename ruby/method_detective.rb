@@ -39,9 +39,10 @@
  "Elementary  ,    my   dear      Watson!".squeeze
  => “Elementary , my dear Watson!”
 
-#“z”.<???>
-# => 122 
+"z".ord
+ => 122 
 # (What is the significance of the number 122 in relation to the character z?)
+# It where if falls within the ASCII table.
 
 #“How many times does the letter ‘a’ appear in this string?”.<???>
 #=> 4
