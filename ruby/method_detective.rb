@@ -19,8 +19,9 @@
  "Stop! You’re under arrest!".upcase
  => “STOP! YOU’RE UNDER ARREST!”
 
-# “the usual”.<???>
-#=> “the usual suspects”
+"the usual".insert(9, " suspects")
+"the usual" << " suspects"
+=> “the usual suspects”
 
 #“ suspects”.<???>
 #=> “the usual suspects”
