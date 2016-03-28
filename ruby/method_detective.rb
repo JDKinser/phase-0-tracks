@@ -44,5 +44,5 @@
 # (What is the significance of the number 122 in relation to the character z?)
 # It where if falls within the ASCII table.
 
-#“How many times does the letter ‘a’ appear in this string?”.<???>
-#=> 4
+"How many times does the letter ‘a’ appear in this string?".count(a)
+=> 4
