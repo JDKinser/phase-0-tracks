@@ -57,7 +57,6 @@ dresser[:top_drawer][:sock_type].delete_at(2)
 puts "These are the types of socks you now have: "
 puts dresser[:top_drawer][:sock_type]
 
-
 #Print the contents of the top drawer.
 print "The contents of the middle drawer: "
 puts dresser[:middle_drawer][:contents]
@@ -65,16 +64,3 @@ puts dresser[:middle_drawer][:contents]
 #Print the contents of the top drawer.
 print "The contents of the bottom drawer: "
 puts dresser[:bottom_drawer][:contents]
-
-
-
-
-
-
-
-
-
-
-
-
-
