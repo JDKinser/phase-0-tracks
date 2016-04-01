@@ -18,7 +18,16 @@ age = gets.chomp.to_i
 user_info[:age] = age
 
 
-
 #Ask user for number of children.
+#Store input to kids variable as an integer.
+#Add variable a value to the "kids" key.
+print "How many children do you have (You may include your husband): "
+kids = gets.chomp.to_i
+user_info[:kids] = kids
+
+#p user_info
+
+
+
 #Ask user what their dream decor theme.
 #Ask user if they own their home.
