@@ -25,9 +25,16 @@ print "How many children do you have (You may include your husband): "
 kids = gets.chomp.to_i
 user_info[:kids] = kids
 
-#p user_info
-
-
 
 #Ask user what their dream decor theme.
+#Store input to dream_decor variable as an integer.
+#Add variable a value to the "dream_decor" key.
+print "What is your dream decors theme: "
+dream_decor = gets.chomp
+user_info[:dream_decor] = dream_decor
+
+
 #Ask user if they own their home.
+
+
+p user_info
