@@ -1,44 +1,30 @@
 #Interior Design Info Form
-def self.to_b(str)
-	case str
-	when "y" then true
-	when "n" then false
-	end
-end
 
 #Create an empty hash
 user_info = {}
 
 #Ask user for name.
-#Store input to name variable.
-#Add variable as a value to the "name" key.
+#Store input to key :name in hash.
 print "Please enter your full name: "
-name = gets.chomp
-user_info[:name] = name
+user_info[:name] = gets.chomp
 
 
 #Ask user for age.
-#Store input to age variable as an integer.
-#Add variable as a value to the "age" key.
+#Store input to key :age in hash.
 print "Please enter your age: "
-age = gets.chomp.to_i
-user_info[:age] = age
+user_info[:age] = gets.chomp.to_i
 
 
 #Ask user for number of children.
-#Store input to kids variable as an integer.
-#Add variable a value to the "kids" key.
+#Store input to key :kids in hash.
 print "How many children do you have? (You may include your husband): "
-kids = gets.chomp.to_i
-user_info[:kids] = kids
+user_info[:kids] = gets.chomp.to_i
 
 
 #Ask user what their dream decor theme.
-#Store input to dream_decor variable.
-#Add variable as a value to the "dream_decor" key.
+#Store input to key :dream_decor in hash.
 print "What is your dream decors theme?: "
-dream_decor = gets.chomp
-user_info[:dream_decor] = dream_decor
+user_info[:dream_decor] = gets.chomp
 
 
 #Ask user if they own their home.
@@ -58,19 +44,55 @@ end
 #Add variable as a value to the "home_owner" key.		
 user_info[:home_owner] = home_owner
 
+
 #Print hash to screen.
 p user_info
 
-		
 
+#Ask user if they would like to update form.
+#Add input to the variable "changes" and downcase if needed.
+print "Are there any changes that need to be made to the information above? (y/n): "
+changes = gets.chomp.downcase
+
+#When the input is "y"
+#Tell users which keys they have the ability to update.
+#Ask which key value they would like to change.
+if changes == "y"
+	puts "Your keys are 'name', 'age', 'kids', 'dream_decor' and 'home_owner'"
+	print "Which key value would you like to update?: "
+	key = gets.chomp
+
+#Update value of chosen key. 	
+	if key == "name"
+		print "Please input new name: "
+		user_info[:name] = gets.chomp
+	elsif key == "age"
+		print "Please input new age: "
+		user_info[:age] = gets.chomp
+	elsif key == "kids"
+		print "Please input number of children: "
+		user_info[:kids] = gets.chomp
+	elsif key == "dream_decor"
+		print "Please input dream decor: "
+		user_info[:dream_decor] = gets.chomp
+	else key == "home_owner"
+		print "Please input new answer: "
+		home_owner2 = gets.chomp
+
+		if home_owner2 == "y"
+			home_owner = true
+		else
+			home_owner = false
+		end
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+		user_info[:home_owner] = home_owner
+	end
+	
+#If they answer "n" print messege.	
+else
+	puts "We thank you for your input."
+end
+
+#Print hash to screen.
+puts user_info
+puts "Thank you for your time."
