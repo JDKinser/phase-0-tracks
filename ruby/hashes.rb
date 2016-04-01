@@ -51,7 +51,7 @@ p user_info
 
 #Ask user if they would like to update form.
 #Add input to the variable "changes" and downcase if needed.
-print "Are there any changes that need to be made to the information above: (y/n)"
+print "Are there any changes that need to be made to the information above? (y/n): "
 changes = gets.chomp.downcase
 
 #When the input is "y"
@@ -77,7 +77,15 @@ if changes == "y"
 		user_info[:dream_decor] = gets.chomp
 	else key == "home_owner"
 		print "Please input new answer: "
-		user_info[:home_owner] = gets.chomp
+		home_owner2 = gets.chomp
+
+		if home_owner2 == "y"
+			home_owner = true
+		else
+			home_owner = false
+		end
+		
+		user_info[:home_owner] = home_owner
 	end
 	
 #If they answer "n" print messege.	
@@ -85,14 +93,6 @@ else
 	puts "We thank you for your input."
 end
 
-
-
-
-
-
-
-
-
-
-
-
+#Print hash to screen.
+puts user_info
+puts "Thank you for your time."
