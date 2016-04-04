@@ -6,12 +6,9 @@
 
 # define method that takes two integers and makes array.
 
-#def calculate
-#  [n1,n2].map{ |x| x.chomp.to_i }
-#end
-
-print "Are you going to be 'adding', 'subtreacting', 'multiplying' or 'dividing': "
-answer = gets.chomp.downcase
+def calculate
+  [n1,n2].map{ |x| x.chomp.to_i }
+end
 
 status = false
 
@@ -23,5 +20,11 @@ answer = gets.chomp.downcase
 	if answer == 'done'
 		puts "Thank you for using the calculator we hope to see you again soon."
 		status = true
+	elsif answer == 'adding'
+		puts "What two numbers would you like added?"
+		operator = :+
 	end
 end
+
+math = calculate.inject(operator)
+puts "#{math}"
