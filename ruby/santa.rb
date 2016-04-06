@@ -20,20 +20,25 @@ class Santa
 		puts "Ho, ho, ho! Haaaappy holidays!"
 	end
 	
+	def reindeer
+		@reindeer_ranking = ["Rudolph", "Dasher", "Dancer", "Prancer", "Vixen", "Comet", "Cupid", "Donner", "Blitzen"]
+	end
+	
+	def age
+		@age = 0
+	end
+	
 	def about
 		puts "Gender: #{@gender}"
 		puts "Ethnicity: #{@ethnicity}"
+		puts "Im #{@age} years old!"
+		puts "Here is a list of my reindeer: " 
+		puts reindeer
 	end
 	
 end
 
-# Store and initialize Santa class in variable "santa"
-santa = Santa.new("male","white")
-
-#run speak method.
-santa.speak
-
-#run EMC method.
-santa.eat_milk_and_cookies("oreo")
-
-santa.about
+santa = Santa.new("male","white") # Store and initialize Santa class in variable "santa"
+santa.speak  #run speak method.
+santa.eat_milk_and_cookies("oreo")  #run EMC method.
+santa.about #driver call to check attributes
