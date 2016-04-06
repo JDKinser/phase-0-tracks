@@ -4,7 +4,7 @@ Puppious Verycuteus
 
 CHARACTERISTICS ----------------
 Whisker length: varies
-Tail lenght: varies
+Tail length: varies
 Friendly: varies
 Bark volume: varies
 Name: varies
