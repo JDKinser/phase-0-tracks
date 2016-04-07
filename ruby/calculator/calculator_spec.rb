@@ -28,6 +28,4 @@ describe Calculator do
 	it "divides two integers" do
 		expect(calculator.divide(5,5)).to eq 1
   end	
-	
-	
 end
