@@ -29,8 +29,8 @@ class Santa
 	end
 	
 	def about
-		puts "Gender: #{@gender}"
-		puts "Ethnicity: #{@ethnicity}"
+		puts "Gender: #{@genders}"
+		puts "Ethnicity: #{@ethnicities}"
 		puts "Im #{@age} years old!"
 		puts "Here is a list of my reindeer: " 
 		puts reindeer
@@ -38,10 +38,29 @@ class Santa
 	
 end
 
-gender = ["agender", "bigender", "male", "female", "gender fluid", "N/A"]
-ethnicity = ["Black", "Latino", "White", "Asian", "Pacific Islander","Prefer not to say", "Mystical Creature (unicorn)", "N/A"]
+
+santas = []
+
+genders = ["agender", "bigender", "male", "female", "gender fluid", "N/A"]
+ethnicities = ["Black", "Latino", "White", "Asian", "Pacific Islander","Prefer not to say", "Mystical Creature (unicorn)", "N/A"]
+
+genders.length.times do |i|
+	santas << Santa.new(genders[i], ethnicities[i])
+	santas.about
+end
 
 
+
+
+
+
+#santas = {}
+#
+#genders.each do |gender, ethnicity|
+#	santas << Santa.new(gender, ethnicity)
+#	puts "There are now #{santas.length} Santa instances in the Hash"
+#  puts "----"
+#end
 
 
 
