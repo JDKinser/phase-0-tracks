@@ -1,13 +1,16 @@
-# Santa class
-
 # Make Santa class
 class Santa
+	#add attr_accessor for attributes
+	attr_accessor :gender, :ethnicity, :age, :reindeer_ranking
 	
 	# add ititialize method that will tell us whenever a new class is initialized.
-	def initialize(gender, ethnicity)
-		puts "Initializing Santa instance..."
-		@gender = gender
-		@ethnicity = ethnicity
+	def initialize(genders, ethnicities)
+		#puts "Initializing Santa instance..."
+		puts "Yay I'm registered! Here is my info:"
+		@gender = genders	# add gender attribute and set it from argument
+		@ethnicity = ethnicities	# add ethnicity attribute and set it from argument
+		@age = 0	# add age attribute and default to 0
+		@reindeer_ranking = ["Rudolph", "Dasher", "Dancer", "Prancer", "Vixen", "Comet", "Cupid", "Donner", "Blitzen"]	# add Reindeer array
 	end
 	
 	# add a method that will take an argument and output in sentence.
@@ -17,87 +20,55 @@ class Santa
 	
 	# add "speak" method that will output sentence.
 	def speak
-		puts "Ho, ho, ho! Haaaappy holidays!"
+		puts "Haaaappy holidays!! Ho, ho, ho!"
 	end
 	
-	def reindeer
-		@reindeer_ranking = ["Rudolph", "Dasher", "Dancer", "Prancer", "Vixen", "Comet", "Cupid", "Donner", "Blitzen"]
+	# add attribute-changing methed for age
+	def celebrate_birthday
+		@age = @age + 1
+		puts "Im #{@age}"
 	end
 	
-	def age
-		@age = 0
+	# add attribute-changing methed for reindeer
+	def get_mad_at(name)
+		p @reindeer_ranking
+		@reindeer_ranking.delete(name)
+		@reindeer_ranking << name
+		p @reindeer_ranking
 	end
+
 	
-	def about
-		puts "Gender: #{@genders}"
-		puts "Ethnicity: #{@ethnicities}"
-		puts "Im #{@age} years old!"
-		puts "Here is a list of my reindeer: " 
-		puts reindeer
-	end
+#	def gender
+#		@gender
+#	end
 	
+	
+#	def ethnicity
+#		@ethnicity
+#	end
+		
+
 end
 
 
-santas = []
-
+# Set genders array
 genders = ["agender", "bigender", "male", "female", "gender fluid", "N/A"]
+
+# Set ethnicities array
 ethnicities = ["Black", "Latino", "White", "Asian", "Pacific Islander","Prefer not to say", "Mystical Creature (unicorn)", "N/A"]
 
-genders.length.times do |i|
-	santas << Santa.new(genders[i], ethnicities[i])
-	santas.about
+# Create a new class instance 50 times
+# Set new age to a random number between 0 - 140
+# print out the gender, ethnicity and age of santa
+# print speak method
+# add line break for readability 
+
+50.times do
+	santas = Santa.new(genders.sample, ethnicities.sample)
+	new_age = rand(140)
+	santas.age = new_age
+	puts "Gender: #{santas.gender}\nEthnicity: #{santas.ethnicity}\nAge: #{santas.age}"
+	santas.speak
+	puts "\n"
 end
 
-
-
-
-
-
-#santas = {}
-#
-#genders.each do |gender, ethnicity|
-#	santas << Santa.new(gender, ethnicity)
-#	puts "There are now #{santas.length} Santa instances in the Hash"
-#  puts "----"
-#end
-
-
-
-=begin
-santa = Santa.new("male","white") # Store and initialize Santa class in variable "santa"
-santa.speak  #run speak method.
-santa.eat_milk_and_cookies("oreo")  #run EMC method.
-santa.about #driver call to check attributes
-=end
-
-
-
-#class Puppy
-#  def initialize(name)
-#  	@name = name
-#  end
-	
-#  def bark
-#  	puts "#{@name} says: Woof!"
-#  end
-#end
-
-# we make an array of names to build puppies with
-#names = ["Fido", "Spot", "Duchess", "Ginger"]
-
-# we make an empty container for our puppy collection
-#puppies = []
-
-#puts "Iterating through names list to create puppies ..."
-#names.each do |name|
-#  puts "Creating a puppy named #{name} ..."
-#  puppies << Puppy.new(name)
-#  puts "There are now #{puppies.length} Puppy instances in the array"
-#  puts "----"
-#end
-
-#puts "Testing each Puppy instance in the array to make sure it can bark ..."
-#puppies.each do |puppy|
-#  puppy.bark
-#end
