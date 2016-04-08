@@ -9,3 +9,7 @@
 # ask user how many planes they would like to rent
 # add each instance to an array
 # loop through the array and output info
+
+
+class Airplane
+end
