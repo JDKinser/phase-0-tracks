@@ -2,12 +2,15 @@
 
 # Make Santa class
 class Santa
+	attr_reader :gender, :ethnicity, :age, :reindeer_ranking
 	
 	# add ititialize method that will tell us whenever a new class is initialized.
 	def initialize(gender, ethnicity)
 		puts "Initializing Santa instance..."
 		@gender = gender
 		@ethnicity = ethnicity
+		@age = 0
+		@reindeer_ranking = ["Rudolph", "Dasher", "Dancer", "Prancer", "Vixen", "Comet", "Cupid", "Donner", "Blitzen"]
 	end
 	
 	# add a method that will take an argument and output in sentence.
@@ -20,22 +23,15 @@ class Santa
 		puts "Ho, ho, ho! Haaaappy holidays!"
 	end
 	
-	def reindeer
-		@reindeer_ranking = ["Rudolph", "Dasher", "Dancer", "Prancer", "Vixen", "Comet", "Cupid", "Donner", "Blitzen"]
+	def celebrate_birthday
+		new_age = @age + 1
 	end
 	
-	def age
-		@age = 0
+	def get_mad_at(name)
+		@reindeer_ranking.delete(name)
+		@reindeer_ranking << name
 	end
-	
-	def about
-		puts "Gender: #{@genders}"
-		puts "Ethnicity: #{@ethnicities}"
-		puts "Im #{@age} years old!"
-		puts "Here is a list of my reindeer: " 
-		puts reindeer
-	end
-	
+
 end
 
 
@@ -45,13 +41,21 @@ genders = ["agender", "bigender", "male", "female", "gender fluid", "N/A"]
 ethnicities = ["Black", "Latino", "White", "Asian", "Pacific Islander","Prefer not to say", "Mystical Creature (unicorn)", "N/A"]
 
 genders.length.times do |i|
-	santas << Santa.new(genders[i], ethnicities[i])
-	santas.about
+	santas << Santa.new(genders[i], ethnicities[i]).about
 end
 
 
 
 
+
+
+
+#def about
+#	puts "Gender: #{@genders}"
+#	puts "Ethnicity: #{@ethnicities}"
+#	puts "Im #{@new_age} years old!"
+#	puts "Here is a list of my reindeer: #{@reindeer_ranking}" 
+#end
 
 
 #santas = {}
