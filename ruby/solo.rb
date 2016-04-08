@@ -12,15 +12,16 @@
 
 
 class Airplane
+	attr_reader :name
 	
-	def initialize
+	def initialize(name)
 		puts "Testing initialize..."
+		@name = name
 	end
 	
 end
 
 # Driver Code
 
-airplane = Airplane.new
-
-p airplane
+airplane = Airplane.new("flock")
+puts "The planes name is: #{airplane.name}"
