@@ -2,13 +2,14 @@
 
 # Make Santa class
 class Santa
-	attr_reader :gender, :ethnicity, :age, :reindeer_ranking
+	attr_accessor :gender, :ethnicity, :age, :reindeer_ranking
 	
 	# add ititialize method that will tell us whenever a new class is initialized.
-	def initialize(gender, ethnicity)
-		puts "Initializing Santa instance..."
-		@gender = gender
-		@ethnicity = ethnicity
+	def initialize(genders, ethnicities)
+		#puts "Initializing Santa instance..."
+		
+		@gender = genders
+		@ethnicity = ethnicities
 		@age = 0
 		@reindeer_ranking = ["Rudolph", "Dasher", "Dancer", "Prancer", "Vixen", "Comet", "Cupid", "Donner", "Blitzen"]
 	end
@@ -24,24 +25,31 @@ class Santa
 	end
 	
 	def celebrate_birthday
-		new_age = @age + 1
+		@age = @age + 1
+		puts "Im #{@age}"
+		@age
 	end
 	
 	def get_mad_at(name)
+		p @reindeer_ranking
 		@reindeer_ranking.delete(name)
 		@reindeer_ranking << name
+		p @reindeer_ranking
 	end
 
 end
 
 
-santas = []
 
 genders = ["agender", "bigender", "male", "female", "gender fluid", "N/A"]
 ethnicities = ["Black", "Latino", "White", "Asian", "Pacific Islander","Prefer not to say", "Mystical Creature (unicorn)", "N/A"]
 
-genders.length.times do |i|
-	santas << Santa.new(genders[i], ethnicities[i]).about
+50.times do |i|
+	santas = Santa.new(genders.sample, ethnicities.sample)
+	santas.speak
+	new_age = rand(140)
+	santas.age = new_age
+	puts "Gender: #{santas.gender}\nEthnicity: #{santas.ethnicity}\nAge: #{santas.age}"
 end
 
 
