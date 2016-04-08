@@ -14,6 +14,13 @@
 class Airplane
 	
 	def initialize
-		
+		puts "Testing initialize..."
 	end
+	
 end
+
+# Driver Code
+
+airplane = Airplane.new
+
+p airplane
