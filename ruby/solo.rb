@@ -3,8 +3,23 @@
 # Make Airplane class
 # add attr_reader and attr_accessor
 # add initialization
+
 # add 3 attributes to initialization 1 with argument
+#	Name attribute
+#	Passengers attribute
+#	Destination attribute
+
 # build three methods
+#	Current location method
+#		Takes argument and outputs sentence with said location.
+#	Guests Method
+#		Sets passengers attribute to a random number between 0-180.
+#	Turbulence method
+#	 	If input is overcast output sentence pertaining to that
+#		elsif input is sunny output sentence pertaining to that
+#		else make fun of user.
+#	Info method
+#		Allows us to see info when we call from the array.
 
 # ask user how many planes they would like to rent
 # add each instance to an array
@@ -62,7 +77,7 @@ puts "When you are done sending your planes all over the world type 'done'"
 
 counter = 0
 
-dashes = "-" * 50
+dashes = "-" * 50 # Refactoring 
 
 until counter == 1
 	print "\nWhat is the name of your airplane? "
@@ -92,7 +107,7 @@ until counter == 1
 		airplane.info
 		airplane.turbulence(weather)
 		
-		planes << airplane
+		planes << airplane # Adding to array
 	end
 end
 
