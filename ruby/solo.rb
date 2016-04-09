@@ -31,9 +31,9 @@ class Airplane
 	attr_accessor :name, :destination
 	
 	def initialize(name, destination)
-		print "------------"
+		print "-" * 50
 		puts "\nNew Plane:"
-		print "------------"
+		print "-" * 50
 		@name = name
 		@passengers = 0
 		@destination = destination
@@ -64,6 +64,7 @@ class Airplane
 		puts "\nThe planes name is: #{@name}"
 		puts "\nIts destination is: #{@destination}"
 		puts "\nThere are #{guests} guests on the plane."
+		puts "-" * 50
 	end
 	
 end
@@ -99,13 +100,13 @@ until counter == 1
 		destination = gets.chomp
 		
 		puts "Is the weather 'sunny' or 'overcast' today?"
-		print "There is not in between done argue! "
+		print "There is not in between dont argue! "
 		weather = gets.chomp
 		
 		airplane = Airplane.new(name, destination)
+		airplane.turbulence(weather)
 		airplane.current_location(location)
 		airplane.info
-		airplane.turbulence(weather)
 		
 		planes << airplane # Adding to array
 	end
