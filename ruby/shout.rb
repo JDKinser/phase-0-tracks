@@ -5,7 +5,11 @@ module Shout
 	end
 	
 	def self.yell_happily(words)
-		words + "!!!" + " :(" # took the easy way out... SHHH
+		words + "!!!" + " :)" # took the easy way out... SHHH
 	end
 	
 end
+
+Shout.self.yell_happily("I love it")
+
+Shout.self.yell_angrily("I Lied")
