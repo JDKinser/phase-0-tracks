@@ -23,18 +23,18 @@ module Shout
 	
 end
 
-
+# Army Drill Sergeant
 class DrillSergeant
 	include Shout
 end
 
-
+# Sports fans
 class Fans
 	include Shout
 end
 
 sergeant = DrillSergeant.new
-sergeant.yell("drop down and give me twenty")
+p sergeant.yell("drop down and give me twenty")
 
 fans = Fans.new
-fans.yell("touchdown")
+p fans.yell("touchdown")
