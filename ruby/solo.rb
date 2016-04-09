@@ -22,10 +22,32 @@ class Airplane
 		@destination = destination
 	end
 	
+	def current_location(location)
+		puts "We will be taking off from #{location}"
+	end
+	
+	def guests
+		@passengers = rand(180)
+	end
+	
+	def turbulence(weather)
+		if weather == "overcast"
+			puts "Folks we are experiencing a bit of turbulence. Please fasten your seatbelts."
+		elsif weather == "sunny"
+			puts "Weather: Sunny"
+			puts "Folks looks like smooth sailing today."
+		else
+			puts "Sigh... I knew you wouldnt follow directions."
+		end
+	end
+	
 end
 
 # Driver Code
 
 airplane = Airplane.new("flock", "Florda")
+airplane.current_location("arizona")
 puts "The planes name is: #{airplane.name}"
 puts "Its destination is: #{airplane.destination}"
+puts "there are #{airplane.guests} guests on the plane."
+airplane.turbulence("sunny")
