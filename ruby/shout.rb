@@ -4,4 +4,8 @@ module Shout
 		words + "!!!" + " :("
 	end
 	
+	def self.yell_happily(words)
+		words + "!!!" + " :(" # took the easy way out... SHHH
+	end
+	
 end
