@@ -32,6 +32,7 @@ class Airplane
 	
 	def turbulence(weather)
 		if weather == "overcast"
+			puts "Weather: Overcast"
 			puts "Folks we are experiencing a bit of turbulence. Please fasten your seatbelts."
 		elsif weather == "sunny"
 			puts "Weather: Sunny"
@@ -48,7 +49,7 @@ planes = []
 
 puts "Welcome to your very own airport."
 puts "Please follow the instructions so we can gets these planes in the air."
-puts "When you are done sending your planes all over the world type 'done'"
+puts "When you are done sending your planes all over the world type 'done'\n"
 
 counter = 0
 
@@ -69,12 +70,16 @@ until counter == 1
 		print "Where we be heading today? "
 		destination = gets.chomp
 		
+		puts "Is the weather 'sunny' or 'overcast' today?"
+		print "There is not in between done argue! "
+		weather = gets.chomp
+		
 		airplane = Airplane.new(name, destination)
-		airplane.current_location(location)
 		puts "The planes name is: #{airplane.name}"
+		airplane.current_location(location)
 		puts "Its destination is: #{airplane.destination}"
 		puts "there are #{airplane.guests} guests on the plane."
-		airplane.turbulence("sunny")
+		airplane.turbulence(weather)
 	end
 end
 
