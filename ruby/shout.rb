@@ -10,6 +10,6 @@ module Shout
 	
 end
 
-Shout.self.yell_happily("I love it")
+p Shout.yell_happily("I love it")
 
-Shout.self.yell_angrily("I Lied")
+p Shout.yell_angrily("I Lied")
