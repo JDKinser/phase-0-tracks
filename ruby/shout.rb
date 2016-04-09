@@ -22,3 +22,13 @@ module Shout
 	end
 	
 end
+
+
+class drill_sergeant
+	include Shout
+end
+
+
+class fans
+	include Shout
+end
