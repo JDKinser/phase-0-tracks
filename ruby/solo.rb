@@ -12,15 +12,20 @@
 
 
 class Airplane
+	attr_reader :passengers
+	attr_accessor :name, :destination
 	
-	def initialize
+	def initialize(name, destination)
 		puts "Testing initialize..."
+		@name = name
+		@passengers = 0
+		@destination = destination
 	end
 	
 end
 
 # Driver Code
 
-airplane = Airplane.new
-
-p airplane
+airplane = Airplane.new("flock", "Florda")
+puts "The planes name is: #{airplane.name}"
+puts "Its destination is: #{airplane.destination}"
