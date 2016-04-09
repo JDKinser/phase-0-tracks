@@ -16,15 +16,18 @@ class Airplane
 	attr_accessor :name, :destination
 	
 	def initialize(name, destination)
-		puts "Testing initialize..."
+		print "------------"
+		puts "\nNew Plane:"
+		print "------------"
 		@name = name
 		@passengers = 0
 		@destination = destination
 	end
 	
 	def current_location(location)
-		puts "We will be taking off from #{location}"
+		puts "\nWe will be taking off from: #{location}"
 	end
+	
 	
 	def guests
 		@passengers = rand(180)
@@ -32,14 +35,20 @@ class Airplane
 	
 	def turbulence(weather)
 		if weather == "overcast"
-			puts "Weather: Overcast"
-			puts "Folks we are experiencing a bit of turbulence. Please fasten your seatbelts."
+			puts "\nWeather: Overcast"
+			puts "Due to the weather we may experience a bit of turbulence."
 		elsif weather == "sunny"
-			puts "Weather: Sunny"
-			puts "Folks looks like smooth sailing today."
+			puts "\nWeather: Sunny"
+			puts "Due to the sunny weather looks like smooth sailing today."
 		else
-			puts "Sigh... I knew you wouldnt follow directions."
+			puts "\nWeather unknow... User cant type."
 		end
+	end
+	
+	def info
+		puts "\nThe planes name is: #{@name}"
+		puts "\nIts destination is: #{@destination}"
+		puts "\nThere are #{guests} guests on the plane."
 	end
 	
 end
@@ -47,20 +56,24 @@ end
 
 planes = []
 
-puts "Welcome to your very own airport."
-puts "Please follow the instructions so we can gets these planes in the air."
-puts "When you are done sending your planes all over the world type 'done'\n"
+puts "\nWelcome to your very own airport." 
+puts "\nPlease follow the instructions so we can gets these planes in the air." 
+puts "When you are done sending your planes all over the world type 'done'" 
 
 counter = 0
 
+dashes = "-" * 50
+
 until counter == 1
-	print "What is the name of your airplane? "
+	print "\nWhat is the name of your airplane? "
 	name = gets.chomp
 
 	if name.downcase == "done"
-		puts "Here is a list of your airplanes and thier info!"
-		planes.each do |plane|
-			p planes[plane]	
+		print dashes
+		puts "\nHere is a list of your airplanes and thier info!\n"
+		print dashes
+		planes.count.times do |i|
+			planes[i].info		
 		end
 		counter += 1
 	else
@@ -75,15 +88,13 @@ until counter == 1
 		weather = gets.chomp
 		
 		airplane = Airplane.new(name, destination)
-		puts "The planes name is: #{airplane.name}"
 		airplane.current_location(location)
-		puts "Its destination is: #{airplane.destination}"
-		puts "there are #{airplane.guests} guests on the plane."
+		airplane.info
 		airplane.turbulence(weather)
+		
+		planes << airplane
 	end
 end
-
-
 
 
 
