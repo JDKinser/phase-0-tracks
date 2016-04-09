@@ -24,11 +24,17 @@ module Shout
 end
 
 
-class drill_sergeant
+class DrillSergeant
 	include Shout
 end
 
 
-class fans
+class Fans
 	include Shout
 end
+
+sergeant = DrillSergeant.new
+sergeant.yell("drop down and give me twenty")
+
+fans = Fans.new
+fans.yell("touchdown")
