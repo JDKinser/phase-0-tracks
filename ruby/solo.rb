@@ -31,9 +31,10 @@ class Airplane
 	attr_accessor :name, :destination
 	
 	def initialize(name, destination)
-		print "-" * 50
+		@lines = "-" * 50
+		print @lines
 		puts "\nNew Plane:"
-		print "-" * 50
+		print @lines
 		@name = name
 		@passengers = 0
 		@destination = destination
@@ -64,7 +65,7 @@ class Airplane
 		puts "\nThe planes name is: #{@name}"
 		puts "\nIts destination is: #{@destination}"
 		puts "\nThere are #{guests} guests on the plane."
-		puts "-" * 50
+		puts @lines
 	end
 	
 end
