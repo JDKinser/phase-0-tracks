@@ -7,3 +7,9 @@ loop through new arrays
 call .lenght on array
 Return the longest string within the array.
 */
+
+function longString(array) {
+	return array.split('');
+}
+
+console.log(longString(["frank", "billy bob", "mike"]))
