@@ -12,6 +12,10 @@
 // The strings will then be joined back into a single String
 // Output will be original word reversed 
 
+// Original functions doing each piece of the flip
+
+/*
+
 function split(word) {
   var split = word.split('');
   return split
@@ -27,12 +31,20 @@ function join(reversed) {
   return joined
 }
 
+console.log(split("frank"));
+console.log(reverse(split("frank")));
+console.log(join(reverse(split("frank"))));
+
+*/
+
+
+// Refactored code
+
 function awesome(name) {
   return name.split('').reverse().join('');
 }
 
 
-console.log(split("frank"));
-console.log(reverse(split("frank")));
-console.log(join(reverse(split("frank"))));
-console.log(awesome("frank"));
+if (1 + 1 == 2) {
+	console.log(awesome("frank"));
+}
