@@ -44,7 +44,8 @@ function awesome(name) {
   return name.split('').reverse().join('');
 }
 
+var frank = awesome("Frank");
 
 if (1 + 1 == 2) {
-	console.log(awesome("frank"));
+	console.log(frank);
 }
