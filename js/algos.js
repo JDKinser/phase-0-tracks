@@ -1,3 +1,4 @@
+
 /*
 Release 0
 Create a function that will input an array as an argument.
