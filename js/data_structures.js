@@ -44,4 +44,12 @@ var aCar = new Car("Mazda", 1991, true);
 
 aCar.vroom();
 
+var anotherCar = new Car("Toyota", 1999, true);
+
+console.log(anotherCar.brand);
+
+var athirdCar = new Car("Ford", 2005, false);
+
+console.log(athirdCar.year);
+
 
