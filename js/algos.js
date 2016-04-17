@@ -124,13 +124,18 @@ console.log(matchedObjects(movie1, movie2))
 
 function randomString(wordAmount) {
   var alphabet = "abcdefghijklmnopqrstuvwxyz";
-  var string = ""
-  var array = []
+  var array = [];
+  
   for(var i = 0; i < wordAmount; i++) {
-    string += alphabet[Math.floor(Math.random() * 26)]
+     var string = "";
+     var wordLength = Math.floor(10 * Math.random() + 1);
+//      for(var x = 0; x < wordLength; i++) {
+//      string += alphabet[Math.floor(Math.random() * 26)];
+//    }
+//    array.push(string);
   }
-  array.push(string);
-  return array /*Testing*/
+    
+  return wordLength;
 }
 
 console.log(randomString(3))
