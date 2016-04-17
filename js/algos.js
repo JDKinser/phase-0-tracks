@@ -116,16 +116,24 @@ console.log(matchedObjects(movie1, movie2))
   * Set variable to the alphabet so we can pull from it with index
   * Set variable with empty string to add built word
   * Set variable with empty array to add new string
+  * For loop that will loop as many times as number given
+  * Add to string Var a random letter from the alphabet.
+  * Push String to array
 */
 
 
-function randomString() {
+function randomString(wordAmount) {
   var alphabet = "abcdefghijklmnopqrstuvwxyz";
   var string = ""
   var array = []
+  for(var i = 0; i < wordAmount; i++) {
+    string += alphabet[Math.floor(Math.random() * 26)]
+  }
+  array.push(string);
+  return array /*Testing*/
 }
 
-
+console.log(randomString(3))
 
 
 
