@@ -129,13 +129,13 @@ function randomString(wordAmount) {
   for(var i = 0; i < wordAmount; i++) {
      var string = "";
      var wordLength = Math.floor(10 * Math.random() + 1);
-//      for(var x = 0; x < wordLength; i++) {
-//      string += alphabet[Math.floor(Math.random() * 26)];
-//    }
-//    array.push(string);
+      for(var x = 0; x < wordLength; x++) {
+      string += alphabet[Math.floor(Math.random() * 26)];
+    }
+    array.push(string);
   }
     
-  return wordLength;
+  return array;
 }
 
 console.log(randomString(3))
