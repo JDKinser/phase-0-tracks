@@ -111,10 +111,19 @@ console.log(matchedObjects(movie1, movie2))
 //  console.log(getRandom());
 
 
-function randomString() {
-  
-}
+/*
+** Release 2
+  * Set variable to the alphabet so we can pull from it with index
+  * Set variable with empty string to add built word
+  * Set variable with empty array to add new string
+*/
 
+
+function randomString() {
+  var alphabet = "abcdefghijklmnopqrstuvwxyz";
+  var string = ""
+  var array = []
+}
 
 
 
