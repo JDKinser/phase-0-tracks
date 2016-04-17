@@ -59,14 +59,27 @@ console.log(longWord(array))
 ** Release 1
   * Set 2 variables as objects
   * Create a function that takes both variables as arguments
-*
-*
+  * Set var to contain the object key so they can be iterated through
+  *** I feel like there is an easier way to do this I see that there is
+  *** a for...in loop described on the page where I read about object.keys()
+  *** but when I looked in I couldnt find a good syntax that would fit here. 
+  *** More reading needed. Didnt want to fall down the rabbit hole.
+  * Check to see if the property value from object1 === any in object2
+  * If so return true
+  * If function iterates through both object and there are no matches return false.
 */
 
 var movie1 = {name:"how to javascript", length: 120};
 var movie2 = {name:"how to ruby", length: 120};
 
 
+function matchedObjects(obj1, obj2) {
+	
+  var property = Object.keys(obj1);
+
+	for (var i = 0; i < property.length; i++) {
+    }
+}	
 
 
 
