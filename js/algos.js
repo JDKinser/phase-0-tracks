@@ -119,15 +119,17 @@ console.log(matchedObjects(movie1, movie2))
   * For loop that will loop as many times as number given
   * Add to string Var a random letter from the alphabet.
   * Push String to array
+  * Return array
 */
 
 
 function randomString(wordAmount) {
   var alphabet = "abcdefghijklmnopqrstuvwxyz";
   var array = [];
+  var string = "";
   
-  for(var i = 0; i < wordAmount; i++) {
-     var string = "";
+  for(var i = 0; i < wordAmount; i++) { 
+    var string = "";
      var wordLength = Math.floor(10 * Math.random() + 1);
       for(var x = 0; x < wordLength; x++) {
       string += alphabet[Math.floor(Math.random() * 26)];
@@ -138,10 +140,17 @@ function randomString(wordAmount) {
   return array;
 }
 
-console.log(randomString(3))
+/* Driver code */
+
+//console.log(randomString(8))
+
+/*
+Add driver code that does the following 10 times: generates an array, prints the array, feeds the array to your "longest word" function, and prints the result.
+*/
 
 
-
-
+var word_array = randomString(10);
+console.log(word_array);
+console.log(longWord(word_array));
 
 
