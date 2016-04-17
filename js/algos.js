@@ -55,6 +55,19 @@ function longWord(array) {
 console.log(longWord(array))
 
 
+/*
+** Release 1
+  * Set 2 variables as objects
+  * Create a function that takes both variables as arguments
+*
+*
+*/
+
+var movie1 = {name:"how to javascript", length: 120};
+var movie2 = {name:"how to ruby", length: 120};
+
+
+
 
 
 
