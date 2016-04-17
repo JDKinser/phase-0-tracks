@@ -51,5 +51,3 @@ console.log(anotherCar.brand);
 var athirdCar = new Car("Ford", 2005, false);
 
 console.log(athirdCar.year);
-
-
