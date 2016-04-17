@@ -90,5 +90,36 @@ function matchedObjects(obj1, obj2) {
 /* Driver code */
 
 console.log(matchedObjects(movie1, movie2))
+ 
+/***********************/
+/******** Tests ********/
+/***********************/
+
+/*
+** Testing how to get random number gen working
+  * To get number no less then 1 or more then 10 I added 10 *
+  * I noticed that it would pass 0 from time to time so add a + 1 base.
+*/
+
+// The words should be of randomly varying length, with a minimum of 1 letter 
+// and a maximum of 10 letters.
+
+//  function getRandom() {
+//    return Math.floor(10 * Math.random() + 1);
+//  }
+//
+//  console.log(getRandom());
+
+
+function randomString() {
+  
+}
+
+
+
+
+
+
+
 
 
