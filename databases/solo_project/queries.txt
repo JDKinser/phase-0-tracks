@@ -1,0 +1,158 @@
+command: 
+
+SELECT * FROM books;
+
+output: 
+
+1|Harry Potter and the Deathly Hallows|4.59|504|1
+2|The Name of the Wind|4.55|244|2
+3|The Wise Man's Fear|4.57|154|2
+4|Clockwork Princess|4.58|124|3
+5|A Storm of Swords|4.54|123|4
+6|The Way of Kings|4.62|120|5
+7|Words of Radiance|4.76|90|5
+8|Harry Potter and the Sorcerer's Stone|4.41|419|1
+9|Harry Potter and the Prisoner of Azkaban|4.5|105|1
+10|Harry Potter and the Order of the Phoenix|4.44|345|1
+11|Harry Potter and the Goblet of Fire|4.5|275|1
+12|Harry Potter and the Chamber of Secrets|4.34|232|1
+13|Harry Potter and the Half-Blood Prince|4.51|176|1
+14|The Slow Regard of Silent Things|3.91|210|2
+15|Doors of Stone|4.42|132|2
+16|City of Bones|4.12|145|3
+17|Cite of Ashes|4.22|156|3
+18|Cite of Glass|4.34|231|3
+19|Cite of Fallen Angels|4.16|98|3
+20|Cite of Lost Souls|4.31|122|3
+21|Cite of Heavenly Fire|4.48|254|3
+22|A Game of Thrones|4.44|321|4
+23|A Clash of Kings|4.39|124|4
+24|A Feast for Crows|4.07|238|4
+25|A Dance with Dragons|4.28|197|4
+
+command:
+
+UPDATE books SET votes=280 WHERE name="Harry Potter and the Goblet of Fire";
+
+output:
+
+1|Harry Potter and the Deathly Hallows|4.59|504|1
+2|The Name of the Wind|4.55|244|2
+3|The Wise Man's Fear|4.57|154|2
+4|Clockwork Princess|4.58|124|3
+5|A Storm of Swords|4.54|123|4
+6|The Way of Kings|4.62|120|5
+7|Words of Radiance|4.76|90|5
+8|Harry Potter and the Sorcerer's Stone|4.41|419|1
+9|Harry Potter and the Prisoner of Azkaban|4.5|105|1
+10|Harry Potter and the Order of the Phoenix|4.44|345|1
+11|Harry Potter and the Goblet of Fire|4.5|280|1
+12|Harry Potter and the Chamber of Secrets|4.34|232|1
+13|Harry Potter and the Half-Blood Prince|4.51|176|1
+14|The Slow Regard of Silent Things|3.91|210|2
+15|Doors of Stone|4.42|132|2
+16|City of Bones|4.12|145|3
+17|Cite of Ashes|4.22|156|3
+18|Cite of Glass|4.34|231|3
+19|Cite of Fallen Angels|4.16|98|3
+20|Cite of Lost Souls|4.31|122|3
+21|Cite of Heavenly Fire|4.48|254|3
+22|A Game of Thrones|4.44|321|4
+23|A Clash of Kings|4.39|124|4
+24|A Feast for Crows|4.07|238|4
+25|A Dance with Dragons|4.28|197|4
+
+command:
+
+SELECT books.name, authors.name FROM books JOIN authors ON books.author_id = authors.id;
+
+output:
+
+Harry Potter and the Deathly Hallows|J.K. Rowling
+The Name of the Wind|Patrick Rothfuss
+The Wise Man's Fear|Patrick Rothfuss
+Clockwork Princess|Cassandra Clare
+A Storm of Swords|George R.R. Martin
+The Way of Kings|Brandon Sanderson
+Words of Radiance|Brandon Sanderson
+Harry Potter and the Sorcerer's Stone|J.K. Rowling
+Harry Potter and the Prisoner of Azkaban|J.K. Rowling
+Harry Potter and the Order of the Phoenix|J.K. Rowling
+Harry Potter and the Goblet of Fire|J.K. Rowling
+Harry Potter and the Chamber of Secrets|J.K. Rowling
+Harry Potter and the Half-Blood Prince|J.K. Rowling
+The Slow Regard of Silent Things|Patrick Rothfuss
+Doors of Stone|Patrick Rothfuss
+City of Bones|Cassandra Clare
+Cite of Ashes|Cassandra Clare
+Cite of Glass|Cassandra Clare
+Cite of Fallen Angels|Cassandra Clare
+Cite of Lost Souls|Cassandra Clare
+Cite of Heavenly Fire|Cassandra Clare
+A Game of Thrones|George R.R. Martin
+A Clash of Kings|George R.R. Martin
+A Feast for Crows|George R.R. Martin
+A Dance with Dragons|George R.R. Martin
+
+command:
+
+SELECT books.name, books.rating, authors.name FROM books JOIN authors ON book
+
+output:
+
+Harry Potter and the Deathly Hallows|4.59|J.K. Rowling
+The Name of the Wind|4.55|Patrick Rothfuss
+The Wise Man's Fear|4.57|Patrick Rothfuss
+Clockwork Princess|4.58|Cassandra Clare
+A Storm of Swords|4.54|George R.R. Martin
+The Way of Kings|4.62|Brandon Sanderson
+Words of Radiance|4.76|Brandon Sanderson
+Harry Potter and the Sorcerer's Stone|4.41|J.K. Rowling
+Harry Potter and the Prisoner of Azkaban|4.5|J.K. Rowling
+Harry Potter and the Order of the Phoenix|4.44|J.K. Rowling
+Harry Potter and the Goblet of Fire|4.5|J.K. Rowling
+Harry Potter and the Chamber of Secrets|4.34|J.K. Rowling
+Harry Potter and the Half-Blood Prince|4.51|J.K. Rowling
+The Slow Regard of Silent Things|3.91|Patrick Rothfuss
+Doors of Stone|4.42|Patrick Rothfuss
+City of Bones|4.12|Cassandra Clare
+Cite of Ashes|4.22|Cassandra Clare
+Cite of Glass|4.34|Cassandra Clare
+Cite of Fallen Angels|4.16|Cassandra Clare
+Cite of Lost Souls|4.31|Cassandra Clare
+Cite of Heavenly Fire|4.48|Cassandra Clare
+A Game of Thrones|4.44|George R.R. Martin
+A Clash of Kings|4.39|George R.R. Martin
+A Feast for Crows|4.07|George R.R. Martin
+A Dance with Dragons|4.28|George R.R. Martin
+
+command:
+
+DELETE FROM books WHERE name="Doors of Stone";
+
+output:
+
+1|Harry Potter and the Deathly Hallows|4.59|504|1
+2|The Name of the Wind|4.55|244|2
+3|The Wise Man's Fear|4.57|154|2
+4|Clockwork Princess|4.58|124|3
+5|A Storm of Swords|4.54|123|4
+6|The Way of Kings|4.62|120|5
+7|Words of Radiance|4.76|90|5
+8|Harry Potter and the Sorcerer's Stone|4.41|419|1
+9|Harry Potter and the Prisoner of Azkaban|4.5|105|1
+10|Harry Potter and the Order of the Phoenix|4.44|345|1
+11|Harry Potter and the Goblet of Fire|4.5|280|1
+12|Harry Potter and the Chamber of Secrets|4.34|232|1
+13|Harry Potter and the Half-Blood Prince|4.51|176|1
+14|The Slow Regard of Silent Things|3.91|210|2
+16|City of Bones|4.12|145|3
+17|Cite of Ashes|4.22|156|3
+18|Cite of Glass|4.34|231|3
+19|Cite of Fallen Angels|4.16|98|3
+20|Cite of Lost Souls|4.31|122|3
+21|Cite of Heavenly Fire|4.48|254|3
+22|A Game of Thrones|4.44|321|4
+23|A Clash of Kings|4.39|124|4
+24|A Feast for Crows|4.07|238|4
+25|A Dance with Dragons|4.28|197|4
