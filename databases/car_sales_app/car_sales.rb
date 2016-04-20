@@ -104,8 +104,10 @@ end
 # UI
 
 status1 = false
-
-puts "\nHello, welcome to Car Listing Pro!"
+puts "-" * 65
+puts "Hello, welcome to Car Listing Pro!"
+puts "-" * 65
+puts
 puts "Once you have entered the make of the vehicles you wish to sell"
 puts "type 'done' and we will move on to the next step."
 
@@ -125,8 +127,9 @@ make = gets.chomp.capitalize
 end
 
 status2 = false
+puts
 puts "-" * 65
-puts "\nIf you wish to leave the program type 'exit' and the program will close."
+puts "If you wish to leave the program type 'exit' and the program will close."
 
 until status2 == true
 
@@ -137,9 +140,10 @@ input = gets.chomp.downcase
   if input == "exit"
     status2 = true
   elsif input == "add listing"
-    print "Please enter the name of the seller: "
+    print "\nPlease enter the name of the seller: "
     seller = gets.chomp.capitalize
     
+    puts
     puts "-" * 65
     make_id = db.execute("SELECT * FROM makes")
     make_id.each do |item|
@@ -147,7 +151,7 @@ input = gets.chomp.downcase
     end
     puts "-" * 65
     
-    puts "Please enter the number listed above that matches the make of"
+    puts "\nPlease enter the number listed above that matches the make of"
     print "the vehicle you wish to sell: "
     make_id = gets.chomp.to_i
     
@@ -163,20 +167,20 @@ input = gets.chomp.downcase
     add_listing(db, seller, make_id, model, year, price)
     
   elsif input == "update"
-    puts "What would you like to update?"
+    puts "\nWhat would you like to update?"
     puts "-" * 65
     puts "'Seller', 'Make', 'Model', 'Year', 'Price'"
     puts "-" * 65
     toUpdate = gets.chomp.downcase
     if toUpdate == "seller"
-      puts "Here is a list of sellers."
+      puts "\nHere is a list of sellers."
       puts "-" * 65
       sellers = db.execute("SELECT * FROM cars")
       sellers.each do |item|
         puts "ID: #{item["id"]} | Seller: #{item["seller"]}"
       end
       puts "-" * 65
-      print "What is the ID of Seller to be updated: "
+      print "What is the ID of the Seller to be updated: "
       id = gets.chomp.to_i
       print "Please enter updated name: "
       seller = gets.chomp.capitalize
@@ -189,41 +193,137 @@ input = gets.chomp.downcase
       puts "-" * 65
       
     elsif toUpdate == "make"
+      puts "\nHere is a list of Makes."
+      puts "-" * 65
+      makes = db.execute("SELECT * FROM makes")
+      makes.each do |item|
+        puts "ID: #{item["id"]} | Make: #{item["make"]}"
+      end
+      puts "-" * 65
+      print "What is the ID of the Make to be updated: "
+      id = gets.chomp.to_i
+      print "Please enter updated Make: "
+      make = gets.chomp.capitalize
+      update_make(db, id, make)
+      puts "-" * 65
+      makes = db.execute("SELECT * FROM makes")
+      makes.each do |item|
+        puts "ID: #{item["id"]} | Model: #{item["make"]}"
+      end
+      puts "-" * 65
+      
     elsif toUpdate == "model"
+      puts "\nHere is a list of Models."
+      puts "-" * 65
+      models = db.execute("SELECT * FROM cars")
+      models.each do |item|
+        puts "ID: #{item["id"]} | Model: #{item["model"]}"
+      end
+      puts "-" * 65
+      print "What is the ID of the Model to be updated: "
+      id = gets.chomp.to_i
+      print "Please enter updated Model: "
+      model = gets.chomp.capitalize
+      update_model(db, id, model)
+      puts "-" * 65
+      models = db.execute("SELECT * FROM cars")
+      models.each do |item|
+        puts "ID: #{item["id"]} | Model: #{item["model"]}"
+      end
+      puts "-" * 65
+      
     elsif toUpdate == "year"
+      puts "\nHere is a list of Years."
+      puts "-" * 65
+      years = db.execute("SELECT * FROM cars")
+      years.each do |item|
+        puts "ID: #{item["id"]} | Year: #{item["year"]}"
+      end
+      puts "-" * 65
+      print "What is the ID of the Year to be updated: "
+      id = gets.chomp.to_i
+      print "Please enter updated Year: "
+      year = gets.chomp.to_i
+      update_year(db, id, year)
+      puts "-" * 65
+      years = db.execute("SELECT * FROM cars")
+      years.each do |item|
+        puts "ID: #{item["id"]} | Year: #{item["year"]}"
+      end
+      puts "-" * 65
+      
     elsif toUpdate == "price"
+      puts "\nHere is a list of Prices."
+      puts "-" * 65
+      prices = db.execute("SELECT * FROM cars")
+      prices.each do |item|
+        puts "ID: #{item["id"]} | Price: #{item["price"]}"
+      end
+      puts "-" * 65
+      print "What is the ID of the Price to be updated: "
+      id = gets.chomp.to_i
+      print "Please enter updated Price: "
+      price = gets.chomp.to_i
+      update_price(db, id, price)
+      puts "-" * 65
+      prices = db.execute("SELECT * FROM cars")
+      prices.each do |item|
+        puts "ID: #{item["id"]} | Price: #{item["price"]}"
+      end
+      puts "-" * 65
+      
     else
+      puts "Input not recognized. Please try again."
     end
     
   elsif input == "delete"
-    puts ""
+    puts "\nWhat would you like to delete?"
+    puts "-" * 65
+    puts "'Listing', 'Make'"
+    puts "-" * 65
+    toDelete = gets.chomp.downcase
+      if toDelete == "listing"
+        puts "\nHere are your Listings."
+        puts "-" * 65
+        listing = db.execute("SELECT * FROM cars")
+        listing.each do |item|
+          puts "#{item["id"]} | #{item["seller"]} | #{item["model"]}"
+        end
+        puts "-" * 65
+        print "What is the ID of the Listing to be deleted: "
+        id = gets.chomp.to_i
+        delete_listing(db, id)
+        puts
+        puts "-" * 65
+        listing = db.execute("SELECT * FROM cars")
+        listing.each do |item|
+          puts "#{item["id"]} | #{item["seller"]} | #{item["model"]}"
+        end
+        puts "-" * 65
+        
+      elsif toDelete == "make"
+        puts "\nHere are your Makes."
+        puts "-" * 65
+        makes = db.execute("SELECT * FROM makes")
+        makes.each do |item|
+          puts "#{item["id"]} | #{item["make"]}"
+        end
+        puts "-" * 65
+        print "What is the ID of the Make to be deleted: "
+        id = gets.chomp.to_i
+        delete_make(db, id)
+        puts
+        puts "-" * 65
+        makes = db.execute("SELECT * FROM cars")
+        makes.each do |item|
+          puts "#{item["id"]} | #{item["make"]}"
+        end
+        puts "-" * 65
+        
+      else
+        puts "Input not recognized. Please try again."
+      end
   else
     puts "Input not recognized. Please try again."
   end
 end
-
-
-
-
-
-#puts "Okay, now we will need a bit more information."
-#puts "Please keep track of the id number we listed above"
-#puts "\nwe will be adding it to 'make_id' shortly."
-#puts "Please type one of the following to input the"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
