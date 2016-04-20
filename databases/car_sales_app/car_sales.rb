@@ -119,7 +119,7 @@ puts "type 'done' and we will move on to the next step."
 
 until status1 == true
 
-print "\nPlease enter the model of the vehicle you wish to list: "
+print "\nPlease enter the make of the vehicle you wish to list: "
 make = gets.chomp.upcase
   if make == "DONE"
     status1 = true
