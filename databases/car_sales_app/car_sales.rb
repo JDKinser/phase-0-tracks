@@ -1,34 +1,34 @@
-# Car Selling App
-
-# require gem
-require 'sqlite3'
-
-# create SQLite3 database and set it equal to the variable db
-db = SQLite3::Database.new("carsales.db")
-db.results_as_hash = true
-
-create_cars_table = <<-SQL
-  CREATE TABLE IF NOT EXISTS cars(
-    id INTEGER PRIMARY KEY,
-    seller VARCHAR(255),
-    make_id INT,
-    model VARCHAR(255),
-    year INT,
-    price INT,
-    FOREIGN KEY (make_id) REFERENCES makes(id)
-  )
-SQL
-
-create_makes_table = <<-SQL
-    CREATE TABLE IF NOT EXISTS makes(
-    id INTEGER PRIMARY KEY,
-    make VARCHAR(255)
-  )
-SQL
-
-# create a main_list table (if it's not there already)
-db.execute(create_cars_table)
-db.execute(create_makes_table)
+## Car Selling App
+#
+## require gem
+#require 'sqlite3'
+#
+## create SQLite3 database and set it equal to the variable db
+#db = SQLite3::Database.new("carsales.db")
+#db.results_as_hash = true
+#
+#create_cars_table = <<-SQL
+#  CREATE TABLE IF NOT EXISTS cars(
+#    id INTEGER PRIMARY KEY,
+#    seller VARCHAR(255),
+#    make_id INT,
+#    model VARCHAR(255),
+#    year INT,
+#    price INT,
+#    FOREIGN KEY (make_id) REFERENCES makes(id)
+#  )
+#SQL
+#
+#create_makes_table = <<-SQL
+#    CREATE TABLE IF NOT EXISTS makes(
+#    id INTEGER PRIMARY KEY,
+#    make VARCHAR(255)
+#  )
+#SQL
+#
+## create a main_list table (if it's not there already)
+#db.execute(create_cars_table)
+#db.execute(create_makes_table)
 
 # *****************************************************************************
 
@@ -97,4 +97,48 @@ end
 # JOIN makes ON cars.make_id = makes.id;
 
 # *****************************************************************************
+
+# UI
+
+status = false
+
+puts "Hello, welcome to Car Listing Pro!"
+
+until status == true
+puts "If you wish to leave the program type 'exit' and the program will close."
+print "\nPlease enter the model of the vehicle you wish to list: "
+make = gets.chomp.capitalize
+  if make == "Exit"
+    status = true
+  else
+    add_make(db, make)
+    make_id = db.execute("SELECT * FROM makes")
+    make_id.each do |item|
+      puts "#{item["make"]} has the id: #{item["id"]}"
+    end
+  end
+print "\ntests!"
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
