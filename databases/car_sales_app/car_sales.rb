@@ -1,4 +1,5 @@
 # Car Selling App
+# *****************************************************************************
 
 # require gem
 require 'sqlite3'
@@ -7,6 +8,7 @@ require 'sqlite3'
 db = SQLite3::Database.new("carsales.db")
 db.results_as_hash = true
 
+# create cars table and set it to a variable
 create_cars_table = <<-SQL
   CREATE TABLE IF NOT EXISTS cars(
     id INTEGER PRIMARY KEY,
@@ -19,6 +21,7 @@ create_cars_table = <<-SQL
   )
 SQL
 
+# create makes table and set it to a variable
 create_makes_table = <<-SQL
     CREATE TABLE IF NOT EXISTS makes(
     id INTEGER PRIMARY KEY,
@@ -26,7 +29,7 @@ create_makes_table = <<-SQL
   )
 SQL
 
-# create a main_list table (if it's not there already)
+# create the tables (if they are not there already)
 db.execute(create_cars_table)
 db.execute(create_makes_table)
 
@@ -102,43 +105,47 @@ end
 
 status1 = false
 
-puts "Hello, welcome to Car Listing Pro!"
-
-until status1 == true
+puts "\nHello, welcome to Car Listing Pro!"
 puts "Once you have entered the make of the vehicles you wish to sell"
 puts "type 'done' and we will move on to the next step."
+
+until status1 == true
+
 print "\nPlease enter the model of the vehicle you wish to list: "
 make = gets.chomp.capitalize
   if make == "Done"
     status1 = true
   else
     add_make(db, make)
-    make_id = db.execute("SELECT * FROM makes")
-    make_id.each do |item|
-      puts "#{item["make"]} has the id: #{item["id"]}"
-    end
+#    make_id = db.execute("SELECT * FROM makes")
+#    make_id.each do |item|
+#      puts "#{item["make"]} has the id: #{item["id"]}"
+#    end
   end
 end
 
 status2 = false
+puts "-" * 65
+puts "\nIf you wish to leave the program type 'exit' and the program will close."
 
 until status2 == true
-puts "If you wish to leave the program type 'exit' and the program will close."
-puts """
-Okay, now we will need a bit more information.
-Please keep track of the id number we listed above
-we will be adding it to 'make_id' shortly.
 
-Please type one of the following to input the information
-needed.
-"""
-print "'add', 'make_id', 'model', 'year', 'price': "
+puts "\nPlease type one of the following to input the information needed."
+print "\n'Add listing', 'Update', 'Delete', 'exit': "
+
 input = gets.chomp.downcase
   if input == "exit"
     status2 = true
-  elsif input == "add"
+  elsif input == "add listing"
     print "Please enter the name of the seller: "
     seller = gets.chomp.capitalize
+    
+    puts "-" * 65
+    make_id = db.execute("SELECT * FROM makes")
+    make_id.each do |item|
+      puts "#{item["make"]} has the id: #{item["id"]}"
+    end
+    puts "-" * 65
     
     puts "Please enter the number listed above that matches the make of"
     print "the vehicle you wish to sell: "
@@ -155,14 +162,41 @@ input = gets.chomp.downcase
     
     add_listing(db, seller, make_id, model, year, price)
     
-  elsif input == "make_id"
-    puts "test1"
-  elsif input == "model"
-    puts "test2"
-  elsif input == "year"
-    puts "test3"
-  elsif input == "price"
-    puts "test4"
+  elsif input == "update"
+    puts "What would you like to update?"
+    puts "-" * 65
+    puts "'Seller', 'Make', 'Model', 'Year', 'Price'"
+    puts "-" * 65
+    toUpdate = gets.chomp.downcase
+    if toUpdate == "seller"
+      puts "Here is a list of sellers."
+      puts "-" * 65
+      sellers = db.execute("SELECT * FROM cars")
+      sellers.each do |item|
+        puts "ID: #{item["id"]} | Seller: #{item["seller"]}"
+      end
+      puts "-" * 65
+      print "What is the ID of Seller to be updated: "
+      id = gets.chomp.to_i
+      print "Please enter updated name: "
+      seller = gets.chomp.capitalize
+      update_seller(db, id, seller)
+      puts "-" * 65
+      sellers = db.execute("SELECT * FROM cars")
+      sellers.each do |item|
+        puts "ID: #{item["id"]} | Seller: #{item["seller"]}"
+      end
+      puts "-" * 65
+      
+    elsif toUpdate == "make"
+    elsif toUpdate == "model"
+    elsif toUpdate == "year"
+    elsif toUpdate == "price"
+    else
+    end
+    
+  elsif input == "delete"
+    puts ""
   else
     puts "Input not recognized. Please try again."
   end
