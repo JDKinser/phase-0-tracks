@@ -60,6 +60,11 @@ def update_seller(db, id, seller)
   db.execute("UPDATE cars SET seller=? WHERE id=?", [seller, id]) 
 end
 
+# method to update cars seller
+def update_make_id(db, id, make_id)
+  db.execute("UPDATE cars SET make_id=? WHERE id=?", [make_id, id]) 
+end
+
 # method to update cars model
 def update_model(db, id, model)
   db.execute("UPDATE cars SET model=? WHERE id=?", [model, id]) 
@@ -103,6 +108,7 @@ end
 
 # UI
 
+# Set the makes of all vehicles you want to sell.
 status1 = false
 puts "-" * 65
 puts "Hello, welcome to Car Listing Pro!"
@@ -114,18 +120,15 @@ puts "type 'done' and we will move on to the next step."
 until status1 == true
 
 print "\nPlease enter the model of the vehicle you wish to list: "
-make = gets.chomp.capitalize
-  if make == "Done"
+make = gets.chomp.upcase
+  if make == "DONE"
     status1 = true
   else
     add_make(db, make)
-#    make_id = db.execute("SELECT * FROM makes")
-#    make_id.each do |item|
-#      puts "#{item["make"]} has the id: #{item["id"]}"
-#    end
   end
 end
 
+# This is where all the good stuff happens!
 status2 = false
 puts
 puts "-" * 65
@@ -134,14 +137,24 @@ puts "If you wish to leave the program type 'exit' and the program will close."
 until status2 == true
 
 puts "\nPlease type one of the following to input the information needed."
-print "\n'Add listing', 'Update', 'Delete', 'exit': "
+print "\n[1]'Add Listing', [2]'Update', [3]'Delete', [4]'List Info', [5]'Exit': "
 
-input = gets.chomp.downcase
-  if input == "exit"
+input = gets.chomp.to_i
+  if input == 5 # Exit
     status2 = true
-  elsif input == "add listing"
+  elsif input == 4 # List Info
+    puts "\nHere is a list of the data"
+    puts "-" * 65
+    data = db.execute("SELECT * FROM cars")
+    puts "ID |   Seller   |  Model  |  Year  |  Price  "
+    puts
+    data.each do |item|
+      puts "#{item["id"]} | #{item["seller"]} | #{item["model"]} | #{item["year"]} | #{item["price"]}"
+    end
+    puts "-" * 65
+  elsif input == 1 # Add Listing
     print "\nPlease enter the name of the seller: "
-    seller = gets.chomp.capitalize
+    seller = gets.chomp.upcase
     
     puts
     puts "-" * 65
@@ -156,7 +169,7 @@ input = gets.chomp.downcase
     make_id = gets.chomp.to_i
     
     print "Please enter the model of the vehicle: "
-    model = gets.chomp.capitalize
+    model = gets.chomp.upcase
     
     print "Please enter the year of the vehicle: "
     year = gets.chomp.to_i
@@ -166,13 +179,13 @@ input = gets.chomp.downcase
     
     add_listing(db, seller, make_id, model, year, price)
     
-  elsif input == "update"
+  elsif input == 2 # Update
     puts "\nWhat would you like to update?"
     puts "-" * 65
-    puts "'Seller', 'Make', 'Model', 'Year', 'Price'"
+    puts "[1]'Seller', [2]'Make', [3]'MakeID', [4]'Model', [5]'Year', [6]'Price'"
     puts "-" * 65
-    toUpdate = gets.chomp.downcase
-    if toUpdate == "seller"
+    toUpdate = gets.chomp.to_i
+    if toUpdate == 1 # Seller
       puts "\nHere is a list of sellers."
       puts "-" * 65
       sellers = db.execute("SELECT * FROM cars")
@@ -183,7 +196,7 @@ input = gets.chomp.downcase
       print "What is the ID of the Seller to be updated: "
       id = gets.chomp.to_i
       print "Please enter updated name: "
-      seller = gets.chomp.capitalize
+      seller = gets.chomp.upcase
       update_seller(db, id, seller)
       puts "-" * 65
       sellers = db.execute("SELECT * FROM cars")
@@ -192,7 +205,7 @@ input = gets.chomp.downcase
       end
       puts "-" * 65
       
-    elsif toUpdate == "make"
+    elsif toUpdate == 2 # Make
       puts "\nHere is a list of Makes."
       puts "-" * 65
       makes = db.execute("SELECT * FROM makes")
@@ -203,16 +216,36 @@ input = gets.chomp.downcase
       print "What is the ID of the Make to be updated: "
       id = gets.chomp.to_i
       print "Please enter updated Make: "
-      make = gets.chomp.capitalize
+      make = gets.chomp.upcase
       update_make(db, id, make)
       puts "-" * 65
       makes = db.execute("SELECT * FROM makes")
       makes.each do |item|
-        puts "ID: #{item["id"]} | Model: #{item["make"]}"
+        puts "ID: #{item["id"]} | Make: #{item["make"]}"
       end
       puts "-" * 65
       
-    elsif toUpdate == "model"
+    elsif toUpdate == 3 # MakeID
+      puts "\nHere is a list of MakeIDs."
+      puts "-" * 65
+      makeids = db.execute("SELECT * FROM cars")
+      makeids.each do |item|
+        puts "ID: #{item["id"]} | MakeID: #{item["make_id"]}"
+      end
+      puts "-" * 65
+      print "What is the ID of the MakeID to be updated: "
+      id = gets.chomp.to_i
+      print "Please enter updated MakeID: "
+      make_id = gets.chomp.to_i
+      update_make_id(db, id, make_id)
+      puts "-" * 65
+      makeids = db.execute("SELECT * FROM cars")
+      makeids.each do |item|
+        puts "ID: #{item["id"]} | MakeID: #{item["make_id"]}"
+      end
+      puts "-" * 65
+      
+    elsif toUpdate == 4 # Model
       puts "\nHere is a list of Models."
       puts "-" * 65
       models = db.execute("SELECT * FROM cars")
@@ -223,7 +256,7 @@ input = gets.chomp.downcase
       print "What is the ID of the Model to be updated: "
       id = gets.chomp.to_i
       print "Please enter updated Model: "
-      model = gets.chomp.capitalize
+      model = gets.chomp.upcase
       update_model(db, id, model)
       puts "-" * 65
       models = db.execute("SELECT * FROM cars")
@@ -232,7 +265,7 @@ input = gets.chomp.downcase
       end
       puts "-" * 65
       
-    elsif toUpdate == "year"
+    elsif toUpdate == 5 # Year 
       puts "\nHere is a list of Years."
       puts "-" * 65
       years = db.execute("SELECT * FROM cars")
@@ -252,7 +285,7 @@ input = gets.chomp.downcase
       end
       puts "-" * 65
       
-    elsif toUpdate == "price"
+    elsif toUpdate == 6 # Price
       puts "\nHere is a list of Prices."
       puts "-" * 65
       prices = db.execute("SELECT * FROM cars")
@@ -273,16 +306,16 @@ input = gets.chomp.downcase
       puts "-" * 65
       
     else
-      puts "Input not recognized. Please try again."
+      puts "\nInput not recognized. Please enter number next to item to be updated."
     end
     
-  elsif input == "delete"
+  elsif input == 3 # Delete
     puts "\nWhat would you like to delete?"
     puts "-" * 65
-    puts "'Listing', 'Make'"
+    puts "[1]'Listing', [2]'Make'"
     puts "-" * 65
-    toDelete = gets.chomp.downcase
-      if toDelete == "listing"
+    toDelete = gets.chomp.to_i
+      if toDelete == 1
         puts "\nHere are your Listings."
         puts "-" * 65
         listing = db.execute("SELECT * FROM cars")
@@ -301,7 +334,7 @@ input = gets.chomp.downcase
         end
         puts "-" * 65
         
-      elsif toDelete == "make"
+      elsif toDelete == 2
         puts "\nHere are your Makes."
         puts "-" * 65
         makes = db.execute("SELECT * FROM makes")
@@ -321,9 +354,16 @@ input = gets.chomp.downcase
         puts "-" * 65
         
       else
-        puts "Input not recognized. Please try again."
+        puts "\nInput not recognized. Please enter number next to item to be deleted."
       end
   else
-    puts "Input not recognized. Please try again."
+    puts "\nInput not recognized. Please enter number next to what you would like to do."
   end
 end
+
+# *****************************************************************************
+
+# There is a few things I could do to refactor this but I feel like most of it
+# is for purdification. 
+# I am pretty happy with it, but if you have ideas let me know! :D
+# ENJOY!
