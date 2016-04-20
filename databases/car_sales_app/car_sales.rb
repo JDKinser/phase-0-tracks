@@ -1,34 +1,34 @@
-## Car Selling App
-#
-## require gem
-#require 'sqlite3'
-#
-## create SQLite3 database and set it equal to the variable db
-#db = SQLite3::Database.new("carsales.db")
-#db.results_as_hash = true
-#
-#create_cars_table = <<-SQL
-#  CREATE TABLE IF NOT EXISTS cars(
-#    id INTEGER PRIMARY KEY,
-#    seller VARCHAR(255),
-#    make_id INT,
-#    model VARCHAR(255),
-#    year INT,
-#    price INT,
-#    FOREIGN KEY (make_id) REFERENCES makes(id)
-#  )
-#SQL
-#
-#create_makes_table = <<-SQL
-#    CREATE TABLE IF NOT EXISTS makes(
-#    id INTEGER PRIMARY KEY,
-#    make VARCHAR(255)
-#  )
-#SQL
-#
-## create a main_list table (if it's not there already)
-#db.execute(create_cars_table)
-#db.execute(create_makes_table)
+# Car Selling App
+
+# require gem
+require 'sqlite3'
+
+# create SQLite3 database and set it equal to the variable db
+db = SQLite3::Database.new("carsales.db")
+db.results_as_hash = true
+
+create_cars_table = <<-SQL
+  CREATE TABLE IF NOT EXISTS cars(
+    id INTEGER PRIMARY KEY,
+    seller VARCHAR(255),
+    make_id INT,
+    model VARCHAR(255),
+    year INT,
+    price INT,
+    FOREIGN KEY (make_id) REFERENCES makes(id)
+  )
+SQL
+
+create_makes_table = <<-SQL
+    CREATE TABLE IF NOT EXISTS makes(
+    id INTEGER PRIMARY KEY,
+    make VARCHAR(255)
+  )
+SQL
+
+# create a main_list table (if it's not there already)
+db.execute(create_cars_table)
+db.execute(create_makes_table)
 
 # *****************************************************************************
 
@@ -100,16 +100,17 @@ end
 
 # UI
 
-status = false
+status1 = false
 
 puts "Hello, welcome to Car Listing Pro!"
 
-until status == true
-puts "If you wish to leave the program type 'exit' and the program will close."
+until status1 == true
+puts "Once you have entered the make of the vehicles you wish to sell"
+puts "type 'done' and we will move on to the next step."
 print "\nPlease enter the model of the vehicle you wish to list: "
 make = gets.chomp.capitalize
-  if make == "Exit"
-    status = true
+  if make == "Done"
+    status1 = true
   else
     add_make(db, make)
     make_id = db.execute("SELECT * FROM makes")
@@ -117,14 +118,64 @@ make = gets.chomp.capitalize
       puts "#{item["make"]} has the id: #{item["id"]}"
     end
   end
-print "\ntests!"
+end
+
+status2 = false
+
+until status2 == true
+puts "If you wish to leave the program type 'exit' and the program will close."
+puts """
+Okay, now we will need a bit more information.
+Please keep track of the id number we listed above
+we will be adding it to 'make_id' shortly.
+
+Please type one of the following to input the information
+needed.
+"""
+print "'add', 'make_id', 'model', 'year', 'price': "
+input = gets.chomp.downcase
+  if input == "exit"
+    status2 = true
+  elsif input == "add"
+    print "Please enter the name of the seller: "
+    seller = gets.chomp.capitalize
+    
+    puts "Please enter the number listed above that matches the make of"
+    print "the vehicle you wish to sell: "
+    make_id = gets.chomp.to_i
+    
+    print "Please enter the model of the vehicle: "
+    model = gets.chomp.capitalize
+    
+    print "Please enter the year of the vehicle: "
+    year = gets.chomp.to_i
+    
+    print "Please enter the price of the vehicle: "
+    price = gets.chomp.to_i
+    
+    add_listing(db, seller, make_id, model, year, price)
+    
+  elsif input == "make_id"
+    puts "test1"
+  elsif input == "model"
+    puts "test2"
+  elsif input == "year"
+    puts "test3"
+  elsif input == "price"
+    puts "test4"
+  else
+    puts "Input not recognized. Please try again."
+  end
 end
 
 
 
 
 
-
+#puts "Okay, now we will need a bit more information."
+#puts "Please keep track of the id number we listed above"
+#puts "\nwe will be adding it to 'make_id' shortly."
+#puts "Please type one of the following to input the"
 
 
 
