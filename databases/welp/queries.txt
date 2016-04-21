@@ -2,6 +2,8 @@
 
 It doesn't look pretty, but:
 
+**INPUT**
+
 SELECT users.*, business.*, reviews.*
 FROM reviews
     JOIN users
@@ -10,7 +12,16 @@ FROM reviews
         ON business.id = reviews.business_id;
 
 
+**OUTPUT**
+
+4|Steven|Wonder|3|The Beagle Nightclub|1|5|I thought the place looked great!|3|4
+5|Holly|Berry|4|Lotus Yoga|2|4|Very flexible scheduling!|4|5
+1|Bradford|Pitt|1|Grundy Hollow Wedding Chapel|3|3|Extremely predictable|1|1
+7|Denzel|George|5|Plumbing by Janet|4|2|Terrible service!|5|7        
+
 **There are some repetitive columns if we choose to view all fields. Choose instead to just view the user's names, the business name, the star rating, and the comment.
+
+**INPUT**
 
 SELECT users.first_name, users.last_name, business.name, reviews.stars, reviews.comment
 FROM reviews
@@ -19,7 +30,16 @@ FROM reviews
     JOIN business
         ON business.id = reviews.business_id;
 
+**OUTPUT**
+
+Steven|Wonder|The Beagle Nightclub|5|I thought the place looked great!
+Holly|Berry|Lotus Yoga|4|Very flexible scheduling!
+Bradford|Pitt|Grundy Hollow Wedding Chapel|3|Extremely predictable
+Denzel|George|Plumbing by Janet|2|Terrible service!        
+
 **How do you view the data of all three tables for just one particular business? 
+
+**INPUT**
 
 SELECT users.first_name, users.last_name, business.name, reviews.stars, reviews.comment
 FROM reviews
@@ -29,3 +49,6 @@ FROM reviews
         ON business.id = reviews.business_id
 WHERE business.name = "Lotus Yoga";
 
+**OUTPUT**
+
+Holly|Berry|Lotus Yoga|4|Very flexible scheduling!
