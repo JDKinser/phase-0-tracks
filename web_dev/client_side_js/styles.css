@@ -1,0 +1,27 @@
+body {
+	margin: 0px;
+	padding: 0px;
+	background-color: cornflowerblue;
+}
+
+header {
+	background-color: darkseagreen;
+	height: 90px;
+}
+
+h1 {
+	padding: 25px 0px;
+	margin: auto;
+	text-align: center;
+}
+
+div {
+	background-color: azure;
+	width: 200px;
+	height: 200px;
+}
+
+p {
+	text-align: center;
+	padding: 10px;
+}
