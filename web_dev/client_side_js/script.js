@@ -7,4 +7,6 @@ function changeColor() {
   header.children[0].style.color = "yellow"
 }
 
-changeColor();
+var header = document.getElementById("header");
+
+header.addEventListener("click", changeColor);
