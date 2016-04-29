@@ -1,5 +1,6 @@
 # require gems
 require 'sinatra'
+require "sinatra/reloader"
 require 'sqlite3'
 
 set :public_folder, File.dirname(__FILE__) + '/static'
@@ -15,6 +16,15 @@ end
 
 get '/students/new' do
   erb :new_student
+end
+
+get '/campus' do
+	@chi = db.execute("SELECT * FROM students WHERE campus='CHI'")
+	@sd = db.execute("SELECT * FROM students WHERE campus='SD'")
+	@sf = db.execute("SELECT * FROM students WHERE campus='SF'")
+	@sea = db.execute("SELECT * FROM students WHERE campus='SEA'")
+	@nyc = db.execute("SELECT * FROM students WHERE campus='NYC'")
+  erb :campus
 end
 
 # create new students via
